@@ -1,0 +1,112 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    font-family: "FbGaming", sans-serif;
+    font-weight: 700;
+}
+
+.home-page {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    box-sizing: border-box;
+    padding: clamp(24px, 6vw, 72px);
+    background:
+        radial-gradient(ellipse at 12% 10%, rgb(255 218 125 / 32%), transparent 32%),
+        linear-gradient(145deg, #fff6f3 0%, #fbe8ef 55%, #fff3dc 100%);
+}
+
+.welcome-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: min(100%, 760px);
+    box-sizing: border-box;
+    padding: clamp(40px, 8vw, 76px) clamp(24px, 7vw, 72px);
+    border: 1px solid rgb(255 255 255 / 52%);
+    border-radius: 30px;
+    background: linear-gradient(125deg, #a91d50 0%, #df4777 56%, #f6a94b 100%);
+    box-shadow: 0 24px 60px rgb(143 41 79 / 20%), 0 5px 16px rgb(143 41 79 / 10%);
+    color: #fff;
+    text-align: center;
+}
+
+.welcome-card::before {
+    position: absolute;
+    z-index: -1;
+    top: -120px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgb(255 226 146 / 16%);
+    content: "";
+}
+
+.welcome-label {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #ffe7a8;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    line-height: 1.2;
+}
+
+.welcome-description {
+    margin: 14px 0 32px;
+    color: rgb(255 255 255 / 86%);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.home-button {
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 1px solid rgb(255 255 255 / 65%);
+    border-radius: 12px;
+    background: rgb(255 255 255 / 15%);
+    box-shadow: 0 4px 12px rgb(87 18 45 / 12%);
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    border-color: rgb(255 255 255 / 82%);
+    background: #756a70;
+    box-shadow: 0 7px 16px rgb(54 27 38 / 22%);
+}
+
+.home-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.home-button:focus-visible {
+    outline: 3px solid #ffe7a8;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-button {
+        transition: none;
+    }
+}
