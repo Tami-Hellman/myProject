@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "FbGaming";
+  src: url("/fonts/FbGaming-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+body {
+  font-family: "FbGaming", sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
