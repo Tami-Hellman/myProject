@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Contact as ContactDetails } from '../../models/contact';
+import { ContactDetails } from '../../models/contactDetails';
+
 
 @Component({
   imports: [],
@@ -9,4 +10,14 @@ import { Contact as ContactDetails } from '../../models/contact';
 })
 export class Contact {
   @Input() person!: ContactDetails;
+  deleteContact(person: ContactDetails) {
+    //todo: connect to server and delete the contact from the database
+   
+  }
+
+  editContact(person: ContactDetails) {
+    //todo: connect to server and edit the contact in the database
+  }
+ 
+ 
 }

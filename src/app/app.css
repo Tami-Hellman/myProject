@@ -1,0 +1,16 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    position: relative;
+}
+
+:host::after {
+    display: block;
+    padding: 18px 24px;
+    background: #a91d50;
+    color: #fff;
+    content: "כל הזכויות שמורות ל־MEST";
+    font-family: "FbGaming", sans-serif;
+    font-weight: 700;
+    text-align: center;
+}

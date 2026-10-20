@@ -1,0 +1,25 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: clamp(24px, 6vw, 72px);
+    direction: rtl;
+    font-family: "FbGaming", sans-serif;
+    font-weight: 700;
+    background:
+        radial-gradient(ellipse at 12% 10%, rgb(255 218 125 / 32%), transparent 32%),
+        linear-gradient(145deg, #fff6f3 0%, #fbe8ef 55%, #fff3dc 100%);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 360px));
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+}
+
+:host::before {
+    grid-column: 1 / -1;
+    color: #a91d50;
+    content: "אנשי קשר";
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+}
