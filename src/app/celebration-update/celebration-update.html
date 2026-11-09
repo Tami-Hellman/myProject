@@ -1,0 +1,134 @@
+<div class="update-overlay" dir="rtl" (click)="close.emit()">
+  <section
+    class="update-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="update-title"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="update-composer">
+      <header class="update-heading">
+        <div>
+          <span class="section-index" lang="en" dir="ltr">THE GOOD NEWS EDITOR</span>
+          <h1 id="update-title">מזל טוב<span>!</span></h1>
+          <p>ממלאים את הפרטים, מכינים את הבשורה, ושומרים אותה להמשך.</p>
+        </div>
+        <button
+          class="close-button"
+          type="button"
+          aria-label="סגירת חלון העדכון"
+          (click)="close.emit()"
+        >
+          ×
+        </button>
+      </header>
+
+      <div class="composer-title">
+        <span class="section-index" lang="en" dir="ltr">01 / NEW CELEBRATION</span>
+        <h2 id="composer-title">איזו שמחה חוגגים?</h2>
+      </div>
+
+      <form class="update-form" (ngSubmit)="saveUpdate()">
+        <label class="field-label" for="celebration-type">סוג השמחה</label>
+        <select
+          id="celebration-type"
+          name="celebrationType"
+          [(ngModel)]="selectedCelebration"
+          required
+        >
+          <option value="" disabled>בחירת שמחה</option>
+          @for (type of celebrationTypes; track type) {
+            <option [value]="type">{{ type }}</option>
+          }
+        </select>
+
+        @if (selectedCelebration === 'אחר') {
+          <label class="field-label" for="custom-celebration">מה השמחה?</label>
+          <input
+            id="custom-celebration"
+            type="text"
+            name="customCelebration"
+            [(ngModel)]="customCelebration"
+            placeholder="כתיבת סוג השמחה"
+            required
+          />
+        }
+
+        <div class="subject-preview" aria-live="polite">
+          <span lang="en" dir="ltr">EMAIL SUBJECT</span>
+          <strong>{{ subject || 'נושא המייל יופיע כאן' }}</strong>
+        </div>
+
+        <div class="form-divider">
+          <span class="section-index" lang="en" dir="ltr">02 / CELEBRATION DETAILS</span>
+          <span>תוכן העדכון</span>
+        </div>
+
+        <label class="field-label" for="celebrant-name">שם</label>
+        <input
+          id="celebrant-name"
+          type="text"
+          name="celebrantName"
+          [(ngModel)]="name"
+          autocomplete="name"
+          placeholder="למי חוגגים?"
+          required
+        />
+
+        <label class="field-label" for="celebration-details">שמחה</label>
+        <textarea
+          id="celebration-details"
+          name="celebrationDetails"
+          [(ngModel)]="celebration"
+          rows="3"
+          placeholder="כתיבת כמה מילים על השמחה"
+          required
+        ></textarea>
+
+        <label class="field-label" for="celebration-date">תאריך</label>
+        <input
+          id="celebration-date"
+          type="date"
+          name="celebrationDate"
+          [(ngModel)]="date"
+          required
+        />
+
+        <p class="delivery-note">
+          אפשר לשמור כאן את העדכון. שליחת מיילים לרשימת התפוצה תתאפשר לאחר חיבור שירות דיוור.
+        </p>
+
+        @if (errorMessage) {
+          <p class="form-message error-message" role="alert">{{ errorMessage }}</p>
+        }
+        @if (feedback) {
+          <p class="form-message success-message" role="status">{{ feedback }}</p>
+        }
+
+        <button class="submit-update" type="submit">שמירת עדכון</button>
+      </form>
+    </div>
+
+    <aside class="recent-panel" aria-labelledby="recent-title">
+      <div class="recent-heading">
+        <span class="section-index" lang="en" dir="ltr">THE GOOD NEWS ARCHIVE</span>
+        <h2 id="recent-title">שמחות אחרונות</h2>
+        <span class="recent-count" lang="en" dir="ltr">{{ recentUpdates.length }} / 40</span>
+      </div>
+      <div class="recent-list" tabindex="0" aria-label="רשימת שמחות אחרונות, ניתן לגלול">
+        @if (recentUpdates.length === 0) {
+          <p class="empty-history">השמחות שתשמרי יופיעו כאן.</p>
+        } @else {
+          @for (update of recentUpdates; track update.id) {
+            <article class="recent-item">
+              <span class="recent-type">{{ update.subject }}</span>
+              <strong>{{ update.name }}</strong>
+              <span class="recent-details">{{ update.celebration }}</span>
+              <time [attr.datetime]="update.date">{{ update.date }}</time>
+            </article>
+          }
+        }
+      </div>
+    </aside>
+  </section>
+</div>

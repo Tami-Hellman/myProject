@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
   { path: 'contact', component: ContactPerson },
   { path: 'email-templates', component: EmailTemlates },
-  { path: '**', redirectTo: 'homepage' }
+  { path: '**', redirectTo: 'homepage' },
 ];

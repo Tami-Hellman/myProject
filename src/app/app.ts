@@ -1,15 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HomePage } from './home-page/home-page';
-import { ContactPerson } from './contact-person/contact-person';
-import { EmailTemlates } from './email-temlates/email-temlates';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,HomePage,ContactPerson,EmailTemlates],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('myProject');
-}
+export class App {}

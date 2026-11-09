@@ -1,2 +1,33 @@
+<div class="site-shell">
+  <header class="site-header">
+    <a class="brand" routerLink="/homepage" aria-label="MEST — חזרה לדף הבית">
+      <img src="/assets/logo.png" alt="" />
+      <span class="brand-copy">
+        <strong>MEST</strong>
+        <span lang="en" dir="ltr">GOOD NEWS ONLY</span>
+      </span>
+    </a>
 
-<router-outlet></router-outlet>
+    <nav class="site-nav" aria-label="ניווט ראשי">
+      <a
+        routerLink="/homepage"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >ראשי</a
+      >
+      <a routerLink="/email-templates" routerLinkActive="is-active">תבניות מייל</a>
+      <a routerLink="/contact" routerLinkActive="is-active">אנשי קשר</a>
+    </nav>
+    <span class="header-mark" aria-hidden="true">01 / 03</span>
+  </header>
+
+  <div class="route-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer class="site-footer">
+    <span lang="en" dir="ltr">HAPPINESS | HEALTH | JOY</span>
+    <span>כל הזכויות שמורות ל־MEST</span>
+    <span lang="en" dir="ltr">EST. FOR GOOD NEWS</span>
+  </footer>
+</div>

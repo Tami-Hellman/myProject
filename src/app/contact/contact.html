@@ -1,8 +1,17 @@
-<div class="contact-form">
-    <h1>{{person.name}}</h1>
-    <h3>{{person.email}}</h3>
-    <h3>{{person.phone}}</h3>
-    <button (click)="deleteContact(person)">הסרה</button>
-    <button (click)="editContact(person)">עריכה</button>
-
-</div>
+<article class="contact-card">
+  <span class="card-spark" aria-hidden="true">✳</span>
+  <span class="card-label" lang="en" dir="ltr">GOOD NEWS PERSON</span>
+  <h2>{{ person.name }}</h2>
+  <div class="contact-details">
+    <p>
+      <span>מייל</span><b dir="ltr">{{ person.email }}</b>
+    </p>
+    <p>
+      <span>טלפון</span><b dir="ltr">{{ person.phone }}</b>
+    </p>
+  </div>
+  <div class="contact-actions">
+    <button type="button" (click)="editContact(person)">עריכה</button>
+    <button type="button" (click)="deleteContact(person)">הסרה</button>
+  </div>
+</article>

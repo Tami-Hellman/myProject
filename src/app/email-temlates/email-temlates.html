@@ -1,1 +1,29 @@
-<p>email-temlates works!</p>
+<main class="templates-page" dir="rtl">
+  <section class="templates-intro">
+    <span class="section-index" lang="en" dir="ltr">WORDS FOR THE GOOD MOMENTS</span>
+    <h1>תבניות מייל<span>.</span></h1>
+    <p>בשורות טובות ראויות למילים הנכונות.</p>
+  </section>
+
+  <section class="template-placeholder" aria-labelledby="templates-note">
+    <div class="placeholder-mark" aria-hidden="true">“</div>
+    <div class="placeholder-copy">
+      <span class="placeholder-label" lang="en" dir="ltr">YOUR WORDS, YOUR WAY</span>
+      <h2 id="templates-note">כאן מתחילות<br /><span>הבשורות הטובות.</span></h2>
+      <p>מרחב תבניות המייל שלך מחכה לנוסחים שתרצי לשתף. שיהיו תמיד בשמחות.</p>
+      <button class="open-update-button" type="button" (click)="isUpdateOpen = true">
+        <span class="button-number" lang="en" dir="ltr">01 / NEW CELEBRATION</span>
+        <span>עדכון על שמחה</span>
+        <span class="button-arrow" aria-hidden="true">↗</span>
+      </button>
+    </div>
+    <div class="placeholder-side" lang="en" dir="ltr">
+      <span>HAPPINESS</span>
+      <span>HEALTH</span>
+      <span>JOY</span>
+    </div>
+  </section>
+  @if (isUpdateOpen) {
+    <app-celebration-update (close)="isUpdateOpen = false"></app-celebration-update>
+  }
+</main>

@@ -1,13 +1,63 @@
 <main class="home-page" dir="rtl">
-    <section class="welcome-card" aria-labelledby="welcome-title">
-        <span class="welcome-label">MEST</span>
-        <h1 id="welcome-title">בְּרוּכִים הַבָּאִים</h1>
-        <p class="welcome-description">כל הכלים שלך במקום אחד</p>
+  <section class="hero-poster" aria-labelledby="welcome-title">
+    <div class="poster-topline">
+      <span class="poster-kicker" lang="en" dir="ltr">GOOD NEWS ONLY</span>
+      <span class="poster-edition">מגזין השמחות <b>|</b> גיליון 01</span>
+    </div>
 
-        <nav class="home-actions" aria-label="ניווט ראשי">
-            <button class="home-button" type="button">עדכון שמחה</button>
-            <button class="home-button" type="button" routerLink="/email-templates">תבניות מייל</button>
-            <button class="home-button" type="button" routerLink="/contact">אנשי קשר</button>
-        </nav>
-    </section>
+    <div class="poster-layout">
+      <div class="poster-copy">
+        <div class="hero-logo">
+          <img src="/assets/logo.png" alt="לוגו MEST" />
+          <span lang="en" dir="ltr">A LITTLE MORE JOY</span>
+        </div>
+        <p class="copy-overline">בשורות טובות בלבד</p>
+        <h1 id="welcome-title">רק<br /><span>שמחות</span></h1>
+        <p class="welcome-description">כל השמחות שלך במקום אחד.</p>
+        <div class="copy-note">
+          <span class="note-star" aria-hidden="true">✳</span>
+          <span>עוד סיבה<br />לשמוח.</span>
+        </div>
+      </div>
+
+      <div class="poster-art" aria-label="אלמנט גרפי מופשט" role="img">
+        <span class="art-index" lang="en" dir="ltr">GOOD NEWS / No. 01</span>
+        <span class="art-orbit" aria-hidden="true"></span>
+        <span class="art-star" aria-hidden="true">✳</span>
+        <span class="art-word" lang="en" dir="ltr">JOY<br />!</span>
+        <span class="art-caption">רגעים של אושר</span>
+      </div>
+    </div>
+
+    <div class="poster-bottom">
+      <span class="poster-bottom-note"
+        >בשורות טובות <b>|</b> רגעים של אושר <b>|</b> שיהיה תמיד בשמחות</span
+      >
+      <span class="poster-number" aria-hidden="true">מזל<br />טוב!</span>
+    </div>
+  </section>
+
+  <section class="home-tools" aria-labelledby="tools-title">
+    <div class="tools-heading">
+      <span class="section-index" lang="en" dir="ltr">YOUR GOOD NEWS DESK</span>
+      <h2 id="tools-title">הכלים שלך,<br /><span>לרגעים ששווה לזכור.</span></h2>
+    </div>
+    <nav class="home-actions" aria-label="פעולות באתר">
+      <a class="home-button update-button" routerLink="/email-templates">
+        <span class="button-number" lang="en" dir="ltr">01</span>
+        <span>עדכון על שמחה</span>
+        <span class="button-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="home-button" routerLink="/email-templates">
+        <span class="button-number" lang="en" dir="ltr">02</span>
+        <span>תבניות מייל</span>
+        <span class="button-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="home-button" routerLink="/contact">
+        <span class="button-number" lang="en" dir="ltr">03</span>
+        <span>אנשי קשר</span>
+        <span class="button-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </section>
 </main>

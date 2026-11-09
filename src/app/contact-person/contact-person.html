@@ -1,3 +1,79 @@
-@for (person of people; track person.email) {
-    <app-contact [person]="person"></app-contact>
-}
+<main class="contacts-page" dir="rtl">
+  <header class="contacts-heading">
+    <span class="section-index" lang="en" dir="ltr">YOUR PEOPLE, YOUR MOMENTS</span>
+    <h1>אנשי קשר<span>.</span></h1>
+    <p>האנשים ששווה לשתף איתם את החדשות הטובות.</p>
+    <span class="contact-count" lang="en" dir="ltr">A GOOD CROWD / {{ people.length }}</span>
+  </header>
+
+  <div class="contacts-toolbar">
+    <p>כל אנשי הקשר שלך, מוכנים לבשורות טובות.</p>
+    <button
+      class="add-contact-button"
+      type="button"
+      (click)="isAddingContact = !isAddingContact; feedback = ''"
+      [attr.aria-expanded]="isAddingContact"
+      aria-controls="add-contact-form"
+    >
+      <span aria-hidden="true">+</span>
+      {{ isAddingContact ? 'סגירת הטופס' : 'הוספת איש קשר' }}
+    </button>
+  </div>
+
+  @if (isAddingContact) {
+    <form id="add-contact-form" class="add-contact-form" (ngSubmit)="saveContact()">
+      <div class="form-heading">
+        <span class="section-index" lang="en" dir="ltr">A NEW GOOD NEWS PERSON</span>
+        <h2>איש קשר חדש</h2>
+      </div>
+      <div class="contact-form-fields">
+        <label>
+          שם מלא
+          <input
+            type="text"
+            name="contactName"
+            [(ngModel)]="newContact.name"
+            autocomplete="name"
+            required
+          />
+        </label>
+        <label>
+          כתובת מייל
+          <input
+            type="email"
+            name="contactEmail"
+            [(ngModel)]="newContact.email"
+            autocomplete="email"
+            dir="ltr"
+            required
+          />
+        </label>
+        <label>
+          טלפון
+          <input
+            type="tel"
+            name="contactPhone"
+            [(ngModel)]="newContact.phone"
+            autocomplete="tel"
+            dir="ltr"
+            required
+          />
+        </label>
+      </div>
+      <button class="save-contact-button" type="submit">שמירת איש קשר</button>
+    </form>
+  }
+
+  @if (storageError) {
+    <p class="form-message error-message" role="alert">{{ storageError }}</p>
+  }
+  @if (feedback) {
+    <p class="form-message success-message" role="status">{{ feedback }}</p>
+  }
+
+  <section class="contacts-grid" aria-label="רשימת אנשי קשר">
+    @for (person of people; track $index) {
+      <app-contact [person]="person"></app-contact>
+    }
+  </section>
+</main>

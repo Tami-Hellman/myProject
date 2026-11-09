@@ -1,15 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: "FbGaming";
-  src: url("/fonts/FbGaming-Bold.otf") format("opentype");
+  font-family: 'FbGaming';
+  src: url('/fonts/FbGaming-Bold.otf') format('opentype');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 
+:root {
+  color-scheme: light;
+  --ink: #000000;
+  --paper: #ffffff;
+  --lilac: #4b41d2;
+  --line: var(--ink);
+  --font-display: 'FbGaming', Arial, sans-serif;
+  --font-label: 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--paper);
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "FbGaming", sans-serif;
-  font-weight: 700;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
 }
 
 button,
@@ -17,4 +49,39 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--lilac);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--lilac);
+  color: var(--paper);
+}
+
+[lang='en'] {
+  font-family: var(--font-label);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
